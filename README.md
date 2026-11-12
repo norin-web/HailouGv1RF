@@ -20,10 +20,9 @@ In the repo settings, Pages → Source must be **GitHub Actions**.
 
 ### `base` and the custom domain — read before touching
 
-- No domain (now): `base: "/HailouGv1RF/"` in `vite.config.ts`, no `public/CNAME`.
-  The site lives at https://norin-web.github.io/HailouGv1RF/.
-- Domain attached in Pages settings: switch to `base: "/"` **and** add `public/CNAME`
-  with the bare domain **in the same commit**. Otherwise every asset 404s → white screen.
+- Now: custom domain **hailouguides.forum** → `base: "/"` in `vite.config.ts` + `public/CNAME`.
+- If the domain is removed: `base: "/HailouGv1RF/"` and delete `public/CNAME` in the same
+  commit. A mismatch between `base` and the domain = every asset 404s → white screen.
 
 Image paths always go through `img()` (`src/app/utils/img.ts`), never a plain `"/images/…"` string.
 
