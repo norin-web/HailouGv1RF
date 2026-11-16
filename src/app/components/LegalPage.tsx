@@ -136,7 +136,14 @@ export default function LegalPage({ doc }: { doc: Doc }) {
             )}
 
             {intro.map((t, i) => (
-              <p className="legal2__intro" key={i}>{linkify(t)}</p>
+              <p className="legal2__intro" key={i}>
+                {t.split("\n").map((line, j) => (
+                  <Fragment key={j}>
+                    {j > 0 && <br />}
+                    {linkify(line)}
+                  </Fragment>
+                ))}
+              </p>
             ))}
 
             {sections.map((s, i) => (

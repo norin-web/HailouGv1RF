@@ -7,7 +7,7 @@ import Split from "../components/Split";
 
 // draft — check: the About copy is ours, not from the owner
 const principles = [
-  { title: "Practice first", text: "Every course step gives you one job and a place to try it, so you learn by making a clip, not by reading about one." },
+  { title: "Practice first", text: "Every course step gives you one job and a worked example, so you learn by making a clip in your own AI tool, not by reading about one." },
   { title: "Exact prompts", text: "Example prompts you can copy and adapt, with subject, action, setting, camera, light and style spelled out." },
   { title: "Short by design", text: `Guides are a few steps long. Even the full practical course takes about ${course.minutes} minutes.` },
 ];
@@ -52,7 +52,7 @@ export default function About() {
       <section className="section">
         <div className="container container--narrow">
           <Reveal className="mailcard">
-            <span className="tag">{isSet(site.operator) ? `${site.brand} is made by ${site.operator}` : "Talk to the team"}</span>
+            <span className="tag">{isSet(site.operator) ? `${site.brand} is made by ${site.operator}, ${site.address}` : "Talk to the team"}</span>
             <a className="mailcard__mail" href={`mailto:${site.email}`}>{site.email}</a>
             <div className="cta-row" style={{ justifyContent: "flex-start" }}>
               <Link to="/contact" className="mailchip"><Mail size={18} aria-hidden="true" /><span>Send us a message</span></Link>

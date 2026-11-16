@@ -136,7 +136,7 @@ export default function Home() {
                 <div className="fcard__media">
                   {f.card ? (
                     <div className="practice">
-                      <img src={img(`/images/${f.card}.webp`)} alt="Practice block from a course step: Generate Your Master Reference Image" width={900} height={1461} loading="lazy" />
+                      <img src={img(`/images/${f.card}.webp`)} alt="Example prompt card with a copy button, from a course step" width={760} height={1524} loading="lazy" />
                     </div>
                   ) : (
                     <img className="fcard__phone" src={img(`/images/${f.phone}.webp`)} alt={`${f.tag} screen in ${site.brand}`} width={900} height={1931} loading="lazy" />

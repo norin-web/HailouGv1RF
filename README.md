@@ -1,6 +1,6 @@
-# Hailou Guides — promo site
+# Hailuo Guides — promo site
 
-Promo site for the iOS app **Hailou Guides** (App Store ID 6810614815).
+Promo site for the iOS app **Hailuo Guides** (App Store ID 6810614815).
 React 18 + TypeScript + Vite 6 + Tailwind 4 (layout in `src/styles/index.css`), React Router 7.
 
 ## Run

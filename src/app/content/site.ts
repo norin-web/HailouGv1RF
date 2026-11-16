@@ -1,18 +1,21 @@
 // Every brand / app fact lives here so names, IDs and emails are never duplicated.
-// Facts come from the app's own screens (Figma "Hailou-Guides-v1"). Values marked
-// PLACEHOLDER wait for the owner's documents or the App Store release — anything
-// still PLACEHOLDER is hidden on the page instead of being shown.
+// Facts come from the app's own screens (Figma "Hailou-Guides-v1") and the owner's
+// Privacy Policy / Terms of Use (2026-11-16). Values marked PLACEHOLDER wait for the
+// App Store release — anything still PLACEHOLDER is hidden on the page.
 
 export const PLACEHOLDER = "PLACEHOLDER";
 export const isSet = (v: string) => !!v && v !== PLACEHOLDER;
 
 export const site = {
-  brand: "Hailou Guides",
+  // the owner's brand spelling (documents: HAILUO); the app's Figma screens read "Hailou"
+  brand: "Hailuo Guides",
   email: "mijacic@duomagnet.store",
   year: new Date().getFullYear(),
-  // operator and trademark wording come from the Privacy Policy / Terms (not received yet)
-  operator: PLACEHOLDER,
-  disclaimer: PLACEHOLDER,
+  operator: "DUO MAGNET doo",
+  address: "Veljka Dugoševića 18 A, 11050 Beograd (Zvezdara), Serbia",
+  // wording follows section 8 of the Terms of Use (HAILUO Brand Authorization Agreement)
+  disclaimer:
+    "Hailuo Guides is an educational app independently operated by DUO MAGNET doo. The HAILUO name is used under a signed Trademark and Brand Use Authorization Agreement with Nanonoble Pte. Ltd.; all rights in the HAILUO brand remain with their owner. The app does not operate the HAILUO service and does not connect to HAILUO or MiniMax AI APIs.",
 };
 
 export const app = {
@@ -90,7 +93,7 @@ export const features = [
     tag: "Practical course",
     title: "A full course, from script to final cut",
     text: course.text,
-    checks: [`${course.steps} steps, about ${course.minutes} minutes`, "One 3-scene video by the end", "Practice inside every step"],
+    checks: [`${course.steps} steps, about ${course.minutes} minutes`, "One 3-scene video by the end", "Hands-on practice at every step"],
     phone: "phone-course",
   },
   {
@@ -108,12 +111,12 @@ export const features = [
     phone: "phone-guide",
   },
   {
-    tag: "Practice",
-    title: "Copy the prompt, try it on the spot",
-    text: "Example prompts sit in their own card with a copy button, and practice blocks inside the course let you generate your result right in the app.",
-    checks: ["Example prompts you can copy", "Practice blocks in the course", "Completed badge on every guide"],
-    // shown flat: the practice block from a course step, not a whole screen
-    card: "practice-card",
+    tag: "Ready-made prompts",
+    title: "Copy the prompt, see why it works",
+    text: "Example prompts sit in their own card with a copy button, next to notes on why the approach works. Take the prompt to your AI video tool and adapt it to your idea.",
+    checks: ["Example prompts you can copy", "Example images and videos you can save to Photos", "Completed badge on every guide"],
+    // shown flat: the example-prompt card from a course step, not a whole screen
+    card: "prompt-card",
   },
 ] as { tag: string; title: string; text: string; checks: string[]; phone?: string; card?: string }[];
 
@@ -125,9 +128,9 @@ export const stats = [
 ];
 
 export const steps = [
-  { title: "Get the app", text: "Download Hailou Guides from the App Store." },
+  { title: "Get the app", text: "Download Hailuo Guides from the App Store." },
   { title: "Pick a guide", text: "Choose a topic or start the practical course. Each guide shows its steps and time." },
-  { title: "Make the video", text: "Follow the steps, copy the example prompts and practice right in the app." },
+  { title: "Make the video", text: "Follow the steps, copy the example prompts and use them in your AI video tool." },
 ];
 
 export const specs: [string, string][] = [
@@ -136,18 +139,24 @@ export const specs: [string, string][] = [
   ["Category", app.category],
   ["Content", "21 guides · 7 topics · 1 practical course"],
   ["Practical course", `${course.steps} steps · about ${course.minutes} min`],
-  ["Access", "Subscription inside the app, billed by Apple"],
+  ["Access", "Previews free; full guides and the course with a subscription, billed by Apple"],
+  ["Account", "Not required, progress stays on your device"],
   ["Language", "English"],
   ["Developer", site.operator],
 ].filter(([, v]) => !v.includes(PLACEHOLDER)) as [string, string][];
 
 export const faq = [
   { q: "What's inside the app?", a: "21 short guides in seven topics — Photo Animation, Marketing & Ads, Storytelling, Prompt Engineering, Social Media, Creative Effects and AI Tools & Tech — plus a practical course that takes you from a script to a finished 3-scene AI video." },
+  { q: "Does the app make the videos for me?", a: "No. Hailuo Guides is a learning app: it teaches the workflow, gives you ready-made prompts and shows example images and videos prepared in advance. You make the video in the AI video tool of your choice. The app has no AI chat or generation feature." },
   { q: "How do I start a guide?", a: "On the main screen pick a topic, or stay on All, and tap a guide. Guide Preview shows how many steps it has and how long it takes. Tap Start Guide to begin." },
   { q: "What is the practical course?", a: `The card at the top of the main screen. It has ${course.steps} steps and takes about ${course.minutes} minutes: you write a three-act script, create a master reference image and a consistent main character, control camera and lighting, then review your clips and assemble the story.` },
-  { q: "How do I use the example prompts?", a: "Example prompts sit inside the steps in their own card. Tap the copy icon on the card and paste the prompt into your video tool, then adjust it to your idea." },
-  { q: "How is my progress tracked?", a: "Every guide shows Completed or Uncompleted, and the main screen counts how many of the 21 guides you've finished. The course shows a progress bar across its 8 steps." },
+  { q: "How do I use the example prompts?", a: "Example prompts sit inside the steps in their own card. Tap the copy icon and paste the prompt into your AI video tool, then adapt it to your idea. Results depend on the tool, its settings and your source material." },
+  { q: "Can I save the example images and videos?", a: "Yes, where a guide or the course offers a Save action. The app then asks for Photos Add Only access, which lets it add the example to your library without reading your existing photos." },
+  { q: "What is free and what needs a subscription?", a: "Some previews and navigation are available without a subscription. Full guides and the course need premium access, an auto-renewable subscription bought through the App Store. The price and billing period are shown before you buy." },
+  { q: "Do I need an account?", a: "No. There is no registration or login. Your progress is stored only on your iPhone and isn't uploaded anywhere. Deleting the app removes that local data." },
+  { q: "How is my progress tracked?", a: "Every guide shows Completed or Uncompleted, and the main screen counts how many of the 21 guides you've finished. The course shows a progress bar across its 8 steps and can be restarted, which clears its progress." },
+  { q: "Is the app made by HAILUO or MiniMax?", a: "No. Hailuo Guides is an independent educational app operated by DUO MAGNET doo, which uses the HAILUO name under a signed brand authorization agreement with Nanonoble Pte. Ltd. The app does not connect to HAILUO or MiniMax and sends them no prompts, media or other data." },
   { q: "How do I cancel my subscription?", a: "Subscriptions are billed through your Apple Account. Manage or cancel them in your iPhone's Settings → your name → Subscriptions. Deleting the app doesn't cancel an active subscription." },
-  { q: "How do I restore a purchase?", a: "Open the subscription screen and tap Restore. Use the same Apple Account the purchase was made with. Refunds and billing are handled by Apple." },
+  { q: "How do I restore a purchase?", a: "Open the subscription screen and tap Restore. Use the same Apple Account the purchase was made with. Billing and refunds are handled by Apple." },
   { q: "How do I contact you?", a: "Open Settings → Contact Us in the app, or write to us at the email below. Settings also has Support, Privacy Policy and Terms of Use." },
 ];
